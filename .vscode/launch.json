@@ -11,19 +11,6 @@
             "sourceFileMap": {
                 "/app": "${workspaceRoot}"
             },
-
-            "launchBrowser": {
-                "enabled": true,
-                "args": "${auto-detect-url}",
-                "windows": {
-                    "command": "cmd.exe",
-                    "args": "/C start ${auto-detect-url}"
-                },
-                "osx": {
-                    "command": "open"
-                }
-            },
-
             "pipeTransport": {
                 "pipeProgram": "/bin/bash",
                 "pipeCwd": "${workspaceRoot}",

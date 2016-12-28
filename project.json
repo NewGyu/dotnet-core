@@ -86,6 +86,9 @@
       "Dockerfile",
       "docker-compose.debug.yml",
       "docker-compose.yml"
+    ],
+    "exclude": [
+      "bin"
     ]
   },
   "scripts": {

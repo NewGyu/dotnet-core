@@ -2,9 +2,12 @@ FROM microsoft/dotnet:1.1.0-sdk-projectjson
 ENV NUGET_XMLDOC_MODE skip
 ARG CLRDBG_VERSION=VS2015U2
 WORKDIR /clrdbg
-RUN curl -SL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-release/scripts/GetClrDbg.sh --output GetClrDbg.sh \
+RUN apt-get update \
+    && apt-get install unzip -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -SL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-release/scripts/GetClrDbg.sh --output GetClrDbg.sh \
     && chmod 700 GetClrDbg.sh \
-    && ./GetClrDbg.sh $CLRDBG_VERSION \
+    && ./GetClrDbg.sh $CLRDBG_VERSION . \
     && rm GetClrDbg.sh
 WORKDIR /app
 ENV ASPNETCORE_URLS http://*:5000
